@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="../JS/jQuery-min.js"></script> -->
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        body {
+            background-color: cornsilk;
+        }
+
+        .all {
+            width: 750px;
+            height: 99999px;
+            background-color: #ededed;
+            margin: auto;
+        }
+
+        .first {
+            width: 100%;
+            height: 50px;
+            border-bottom: rgb(220, 217, 217) solid 1px;
+            text-align: center;
+            position: relative;
+            padding: 25px 0;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 35px;
+            font-weight: 500;
+        }
+
+        .left {
+            position: absolute;
+            bottom: 15px;
+        }
+
+        .right {
+            position: absolute;
+            bottom: 11px;
+            right: 0px;
+        }
+
+        .title_txt {
+            float: left;
+        }
+
+        .player1 {
+            position: relative;
+            height: auto;
+        }
+
+        .touxiang {
+            width: 60px;
+            height: 60px;
+            margin-left: 18px;
+            border-radius: 10px;
+        }
+
+        .id {
+            color: #8e8e8e;
+            position: absolute;
+            left: 98px;
+            top: 2px;
+        }
+
+        .neirong {
+            background-color: #fff;
+            position: absolute;
+            font-size: 28px;
+            left: 97px;
+            top: 30px;
+            padding: 8px 8px;
+            margin-right: 105px;
+            height: auto;
+        }
+
+        .neirong1 {
+            position: absolute;
+            font-size: 28px;
+            left: 97px;
+            top: 30px;
+            padding: 8px 8px;
+            margin-right: 105px;
+            height: auto;
+        }
+
+        .jiao {
+            background-color: #fff;
+            position: absolute;
+            width: 0;
+            height: 0;
+            line-height: 0;
+            font-size: 0;
+            border: 10px solid #ededed;
+            border-right-color: #fff;
+            left: 79px;
+            top: 49px;
+
+        }
+
+        .jiao11 {
+            background-color: #fff;
+            position: absolute;
+            width: 0;
+            height: 0;
+            line-height: 0;
+            font-size: 0;
+            border: 10px solid #ededed;
+            border-right-color: #fff;
+            left: 79px;
+            top: 49px;
+            display: none;
+
+        }
+
+        .touxiang img {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        .shuru {
+            position: fixed;
+            width: 750px;
+            height: 100px;
+            bottom: -420px;
+            background-color: aqua;
+            bottom: 1px;
+        }
+
+        .add {
+            position: absolute;
+            left: 0;
+            left: 0;
+        }
+
+        .xuanzhong {
+            background-color: chartreuse;
+        }
+
+        .id_show {
+            position: absolute;
+            top: 1px;
+            left: 1px;
+        }
+
+        .touxiang_show {
+            position: absolute;
+            left: 246px;
+            top: 0;
+            width: 60px;
+            height: 60px;
+        }
+
+        .touxiang_show img {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        .id_change {
+            position: absolute;
+            left: 6px;
+            bottom: 54px;
+        }
+
+        .moban {
+            display: none;
+        }
+
+        .player2 {
+            position: relative;
+        }
+
+
+
+
+
+
+        .player1 {
+            position: relative;
+            height: auto;
+        }
+
+        .touxiang2 {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            right: 18px;
+            border-radius: 10px;
+        }
+
+        .id2 {
+            color: #8e8e8e;
+            position: absolute;
+            right: 98px;
+            top: 2px;
+            display: none;
+        }
+
+        .neirong2 {
+            background-color: #95ec69;
+            position: absolute;
+            font-size: 28px;
+            right: 97px;
+            top: 2px;
+            padding: 8px 8px;
+            margin-left: 105px;
+            height: auto;
+
+        }
+
+        .neirong22 {
+            position: absolute;
+            font-size: 28px;
+            right: 97px;
+            top: 2px;
+            padding: 8px 8px;
+            margin-left: 105px;
+            height: auto;
+
+        }
+
+        .neirong2 img {
+            width: 150px;
+            height: 150px;
+        }
+
+        .neirong22 img {
+            width: 150px;
+            height: 150px;
+        }
+
+        .neirong img {
+            width: 150px;
+            height: 150px;
+        }
+
+        .neirong1 img {
+            width: 150px;
+            height: 150px;
+        }
+
+        .jiao2 {
+            background-color: #95ec69;
+            position: absolute;
+            width: 0;
+            height: 0;
+            line-height: 0;
+            font-size: 0;
+            border: 10px solid #ededed;
+            border-left-color: #95ec69;
+            right: 79px;
+            top: 19px;
+
+        }
+
+        .jiao22 {
+            background-color: #95ec69;
+            position: absolute;
+            width: 0;
+            height: 0;
+            line-height: 0;
+            font-size: 0;
+            border: 10px solid #ededed;
+            border-left-color: #95ec69;
+            right: 79px;
+            top: 19px;
+            display: none;
+
+        }
+
+        .touxiang2 img {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        .tupianfasong {
+            position: absolute;
+            width: 40px;
+            height: 30px;
+            background-color: #fff;
+            right: 4px;
+            top: 15px;
+        }
+
+        .fasong {
+            position: absolute;
+            right: 83px;
+            top: 1px;
+        }
+
+        .fasong1 {
+            position: absolute;
+            right: 83px;
+            top: 30px;
+        }
+
+        .time_change {
+            position: absolute;
+            bottom: 1px;
+            right: 74px;
+        }
+
+        #moban {
+            text-align: center;
+            color: rgb(117, 117, 117);
+            display: none;
+            height: 20px;
+            margin-bottom: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <textarea name="" id="" cols="30" rows="10" class="title_txt">群名编辑</textarea>
+    <button class="changee">修改</button>
+    <div class="all">
+        <div class="first">
+            <h2 class="title">502小金库</h2>
+            <div class="left">
+                <img src="img/left.png" alt="">
+            </div>
+            <div class="right">
+                <img src="img/right.png" alt="">
+            </div>
+        </div>
+
+        <ul class="liaotiankuang">
+            <li class="moban">
+                <div class="player1">
+                    <div class="id">冲冲</div>
+                    <div class="jiao"></div>
+                    <div class="touxiang">
+                        <img src="img/1.jpg" alt="">
+                    </div>
+                    <div class="neirong">废物冲冲踩踩踩踩踩踩踩踩踩踩踩踩踩踩踩踩踩踩嘻嘻嘻嘻嘻嘻嘻嘻嘻从</div>
+                </div>
+            </li>
+            <li class="moban">
+                <div class="player2">
+                    <div class="id2">冲冲</div>
+                    <div class="jiao2"></div>
+                    <div class="touxiang2">
+                        <img src="img/1.jpg" alt="">
+                    </div>
+                    <div class="neirong2">废物冲冲踩踩踩踩踩踩踩踩踩踩踩踩踩踩踩踩踩踩嘻嘻嘻嘻嘻嘻嘻嘻嘻从</div>
+                </div>
+            </li>
+            <li class="time_moban">
+                <div id="moban">ads </div>
+            </li>
+
+        </ul>
+
+
+
+        <!-- 输入模块 -->
+        <div class="shuru">
+            <button class="qiehuan" data-index="0">player1</button>
+            <button class="qiehuan xuanzhong" data-index="1">player2</button>
+            <button class="qiehuan" data-index="2">player3</button>
+            <button class="qiehuan" data-index="3">player4</button>
+            <button class="qiehuan" data-index="4">player5</button>
+            <button class="qiehuan" data-index="5">player6</button>
+            <textarea name="" id="" cols="40" rows="5" class="addd">内容编辑</textarea>
+            <button class="fasong1">左发送</button>
+            <button class="fasong" id="a">右发送</button>
+            <div class="touxiang_show"><img src="img/1.jpg" alt=""></div>
+            <textarea name="" id="" cols="30" rows="1" class="id_show">ID显示</textarea>
+            <button class="id_change">更改</button>
+            <i class="tupianfasong">文字</i>
+            <textarea name="" id="" cols="10" rows="1" class="time">时间编辑</textarea>
+            <button class="time_change">时间更改</button>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', function () {
+            let title = document.querySelector('.title');
+            let title_txt = document.querySelector('.title_txt');
+            let button = document.querySelector('.changee');
+            let liaotian = document.querySelector('.neirong');
+            const qiehuan = document.querySelectorAll('.qiehuan');
+            const player = new Array(6);
+            let id_show = document.querySelector('.id_show');
+            let id_change = document.querySelector('.id_change');
+            let a = 0;
+            let player_img = document.querySelector('.touxiang_show');
+            let fasong1 = document.querySelector('.fasong1');
+            let moban = document.querySelector('.player1');
+            let moban2 = document.querySelector('.player2');
+            let liaotiankuang = document.querySelector('.liaotiankuang');
+            let neirong = document.querySelector('.neirong');
+            let neirong_txt = document.querySelector('.addd');
+            let fasong2 = document.querySelector('#a');
+            let box = document.querySelector('.tupianfasong');
+            let time = document.querySelector('.time');
+            let time_moban = document.querySelector('#moban');
+            let time_change = document.querySelector('.time_change');
+            //群名编辑模块
+            button.addEventListener('click', function () {
+                title.innerHTML = title_txt.value;
+            })
+            //用户切换排他
+            for (var i = 0; i <= 5; i++) {
+                qiehuan[i].addEventListener('click', function () {
+                    for (var k = 0; k <= 5; k++) {
+                        qiehuan[k].className = '';
+                    }
+                    this.className = 'xuanzhong';
+                    player_img.innerHTML = '<img src="img/' + this.getAttribute('data-index') + '.jpg">';
+                    a = this.getAttribute('data-index');
+                })
+                qiehuan[i].addEventListener('click', function () {
+                    id_show.value = player[this.getAttribute('data-index')];
+                })
+
+            }
+            //ID更改
+            id_change.addEventListener('click', function () {
+                player[a] = id_show.value;
+            })
+            //发送模块
+            let value = 0;
+            box.addEventListener('click', function () {
+                if (value == 0) {
+                    value = 1;
+                    box.innerHTML = '图片';
+                } else {
+                    value = 0;
+                    box.innerHTML = '文字';
+                }
+
+
+            })
+            fasong1.addEventListener('click', function () {
+                let lili = moban.cloneNode(true);
+                liaotiankuang.appendChild(lili);
+                let wuhu = lili.lastElementChild;
+                let wuhuhu = lili.firstElementChild;
+                let wuhuhuhu = lili.children[2];
+                lili.style.display = 'block';
+                wuhu.innerHTML = neirong_txt.value;
+                let gaodu = 50 + wuhu.offsetHeight;
+
+                lili.style.height = '' + gaodu + 'px';
+                wuhuhu.innerHTML = id_show.value;
+                wuhuhuhu.innerHTML = player_img.innerHTML;
+                if (value == 1) {
+                    wuhu.className = 'neirong1';
+                    lili.children[1].className = 'jiao11';
+
+                } else {
+                    wuhu.className = 'neirong';
+                    lili.children[1].className = 'jiao';
+
+
+                }
+            })
+
+            fasong2.addEventListener('click', function () {
+                let lili2 = moban2.cloneNode(true);
+                liaotiankuang.appendChild(lili2);
+                let wuhu2 = lili2.lastElementChild;
+                let wuhuhu2 = lili2.firstElementChild;
+                let wuhuhuhu2 = lili2.children[2];
+                lili2.style.display = 'block';
+                wuhu2.innerHTML = neirong_txt.value;
+                let gaodu = 40 + wuhu2.offsetHeight;
+                lili2.style.height = '' + gaodu + 'px';
+                wuhuhu2.innerHTML = id_show.value;
+                wuhuhuhu2.innerHTML = player_img.innerHTML;
+                if (value == 1) {
+                    wuhu2.className = 'neirong22';
+                    lili2.children[1].className = 'jiao22';
+
+
+                } else {
+                    wuhu2.className = 'neirong2';
+                    lili2.children[1].className = 'jiao2';
+
+
+                }
+
+            })
+            time_change.addEventListener('click', function () {
+                let lili = time_moban.cloneNode(true);
+                lili.innerHTML = time.innerHTML;
+                liaotiankuang.appendChild(lili);
+                lili.style.display = 'block';
+            })
+
+        })
+
+    </script>
+</body>
+
+</html>
