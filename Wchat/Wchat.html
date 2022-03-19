@@ -501,9 +501,10 @@
             })
             time_change.addEventListener('click', function () {
                 let lili = time_moban.cloneNode(true);
-                lili.innerHTML = time.innerHTML;
+                lili.innerHTML = time.value;
                 liaotiankuang.appendChild(lili);
                 lili.style.display = 'block';
+
             })
 
         })
